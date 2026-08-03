@@ -79,11 +79,64 @@ This section tracks the execution and observation of standard networking diagnos
 Observation: My Ip address for my Ubuntu machine is my Hostname
 
 ### 2. Reachability
-*Find the local IP address of the machine.*
-* **Command Executed:** `hostname -I` (or `ip addr show`)
+*Check network connectivity and response times to a target.*
+* **Command Executed:** `ping -c 4 google.com`
 * **Output:**
-<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/9278d465-3289-4925-ad80-d23711adc8cb" />
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/bfba7dee-c01a-4309-b963-0a12cf1b3729" />
 
-Observation: My Ip address for my Ubuntu machine is my Hostname
+
+
+Observation: we used -c to track count  for packets delivered. All the packets were delivered successfully with zero packet loss
+
+
+### 3. Path
+*trace the route packets take to a network host.*
+* **Command Executed:** `traceroute google.com` (`or tracepath google.com`)
+* **Output:**
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/5cb300ed-d6b0-4ee5-a8ff-8296205d868b" />
+
+Observation: there was 30 hops maximum but it exited after 17 hops 
+
+### 4. Ports
+*List open ports and listening services.*
+* **Command Executed:** `ss -tulpn (or netstat -tulpn - requires sudo for full process info)`
+* **Output:**
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/0140c292-1df9-439f-b982-a66d5e147b6e" />
+
+Observation: the system is actively listening for incoming TCP connections on port 22 (SSH) and port 80 (HTTP) on all IPv4 interfaces (0.0.0.0). It is also listening locally on port 53 for DNS services. Note: The specific process names are not visible in the output because the command was executed without sudo privileges.
+
+
+### 5. Name Resolution
+*Query DNS to find the IP address of a domain.*
+* **Command Executed:** `dig google.com +short`
+* **Output:**
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/2b5ca1dc-e195-479d-b88e-974e4b94551e" />
+
+
+Observation: Through DNS we got the IP Adress
+
+
+### 6. HTTP check
+*Fetch the HTTP headers from a web server.*
+* **Command Executed:** `curl -I https://www.google.com`
+* **Output:**
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/4a4cadce-0e50-4183-aff1-57fbeed26c33" />
+
+
+
+Observation: Received an HTTP/2 200 OK response status, confirming the target web server is online, reachable over HTTPS, and successfully accepting requests.
+
+### 7. Connection Snapshot
+*View current active network connections.*
+* **Command Executed:** `netstat -an | head -n 8`
+* **Output:**
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/ccde3faf-fdae-489f-8bed-80c271cedcba" />
+
+
+
+
+Observation: The snapshot of active connections displays 4 TCP sockets in the LISTEN state (waiting for incoming traffic on ports 80, 22, and 53). There is 1 active connection currently in the ESTABLISHED state (an inbound SSH connection on port 22), and 1 socket in the TIME_WAIT state (from an outbound connection to port 80).
+
+
 
 
