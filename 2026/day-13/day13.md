@@ -36,3 +36,20 @@ Task 5: Formatting and Mounting
 We used mkfs.ext4 to format our new virtual drive with a clean grid so Linux knows how to store files. Next, we used mkdir -p to create a fresh folder to act as the entryway for our storage. Then, we used mount to plug the virtual drive directly into that folder so we can access it. Finally, we used df -h to check our work, confirming the drive connected properly and showing us the available free space
 
 <img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/b0745e07-51ed-4ebb-a8dc-fc499edcd440" />
+
+
+Task 6  Increasing volume size
+If want to extend my storage due to any volume issue , instead of taking my server offline, I just grabbed 200MB more from my devops-vg pool and stretched the drive. But here is the catch I learned: extending the LVM boundary isn't enough. You also have to tell the filesystem inside the drive to expand into that new empty space.
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/814e2dcf-42a8-436e-8f8a-53dcbf98abc3" />
+
+
+## 🧠 Key Learnings from Each Task
+
+| Task | Key Learning 1 | Key Learning 2 | Key Learning 3 |
+|---|---|---|---|
+| **Task 1: Check Storage** | Checking the disk layout (`lsblk`) first prevents accidental overwrites of important system drives. | `lsblk` shows the raw hardware, while `df -h` shows the storage that is actually usable and mounted. | Cloud servers (like AWS EC2) use loop devices for internal processes, so verifying device names is critical. |
+| **Task 2: Physical Volume** | Raw hard drives cannot be used by LVM directly; they must be initialized first. | `pvcreate` acts as a reservation system, telling Linux the drive is specifically dedicated to LVM. | The `pvs` command is the quickest way to confirm a raw disk is prepped and ready for the storage pool. |
+| **Task 3: Volume Group** | Volume Groups (VGs) act as a giant bucket, allowing you to combine multiple physical disks into one pool. | VGs completely abstract physical hardware limits—the OS just sees the pool size, not individual drives. | Standardized naming (like `devops-vg`) makes it easy to track what applications a storage pool is for. |
+| **Task 4: Logical Volume** | Logical Volumes (LVs) are carved out of the VG pool, letting you set exact custom sizes. | LVs act exactly like traditional hard drive partitions, but they can be resized effortlessly later. | The `lvcreate` command claims space from the pool without affecting the rest of the available storage. |
+| **Task 5: Format & Mount** | A new Logical Volume is useless until formatted (`mkfs.ext4`), which organizes how data will be saved. | Mounting attaches the raw drive to a normal folder (like `/mnt/app-data`) so you can interact with it. | Linux has built-in safety features that prevent you from formatting a drive that is currently mounted. |
+| **Task 6: Extend Volume** | LVM allows you to extend server storage on the fly without shutting down the system (zero downtime). | Expanding storage is always a two-step process: expanding the volume bounds, then resizing the filesystem. | If you skip `resize2fs`, the block volume gets bigger, but the operating system won't see the new space. |
