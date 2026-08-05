@@ -19,24 +19,30 @@ Here is a detailed breakdown of all the scripts I built today, what they do, and
 ### 2. `variables.sh` - Handling Data
 * **What it does:** Stores a name and role in variables and prints them out using both single and double quotes to see the difference.
 * **The Learning:** Bash is incredibly strict about spaces! You must write `NAME="Shubham"`, not `NAME = "Shubham"`. Furthermore, **quotes matter**. Double quotes (`" "`) will read and expand variables, while single quotes (`' '`) will print exactly what is typed, ignoring the variable completely.
-* *(📸 Insert Screenshot: Output showing the difference between single and double quotes)*
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/34fc4548-c9a4-437f-b569-ffa870a7c7ec" />
+
 
 ### 3. `greet.sh` - Making it Interactive
 * **What it does:** Pauses the script and asks the user to type in their name and their favorite DevOps tool, then prints a custom greeting.
 * **The Learning:** Hardcoded scripts are boring. Using the `read -p` command allows the script to prompt the user for data on the same line and store that input directly into a variable for later use.
-* *(📸 Insert Screenshot: Output showing the prompt and the customized greeting)*
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/59a531c6-14c4-413d-81d0-6c357b25a3cc" />
+
 
 ### 4. `check_number.sh` & `file_check.sh` - Adding Logic
 * **What they do:** 
   * `check_number.sh` asks for a number and tells you if it is positive, negative, or zero. 
   * `file_check.sh` asks for a filename and tells you if that file actually exists in the system.
 * **The Learning:** I learned how to build `if-elif-else` statements. Bash math is unique—instead of `<` or `>`, we use `-gt` (greater than), `-lt` (less than), and `-eq` (equal to). For checking files, the `-f` flag is a lifesaver for verifying a file exists before a script tries to modify it!
-* *(📸 Insert Screenshot: Output of both conditional scripts running)*
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/4d5f341e-53ed-45a5-83dd-7421081a401e" />
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/de6faa74-9fdc-47cb-aee0-8769ec8f50ec" />
+
+
 
 ### 5. `server_check.sh` - The Final Boss
 * **What it does:** Combines everything! It asks the user if they want to check the status of a specific service (like `sshd`). If they answer `y`, it runs the real Linux `systemctl status` command. If `n`, it politely skips.
 * **The Learning:** This showed me the real power of DevOps scripting. I can take user input, run a logical check, and then execute actual OS-level commands based on that logic. This is exactly how massive automation tools work under the hood!
-* *(📸 Insert Screenshot: Output of the script successfully checking the sshd service)*
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/cc146fc5-319d-4538-ac2e-9f43eb5b6935" />
+
 
 ---
 
@@ -44,7 +50,6 @@ Here is a detailed breakdown of all the scripts I built today, what they do, and
 
 If you want to test these scripts on your own Linux terminal, follow these steps:
 
-1. Clone this repository and navigate to this folder.
-2. Give the script execute permissions using `chmod`:
+1. Give the script execute permissions using `chmod`:
    ```bash
    chmod +x <script_name>.sh
