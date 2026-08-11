@@ -199,9 +199,7 @@ Docker removes the image only if it is not being used by any existing container.
 
 ## What are Docker Layers?
 
-Docker images are built using multiple **layers**.
-
-Every instruction in a Dockerfile creates a new layer.
+Docker Images are not stored as a single large file. Instead, they are made up of multiple read-only layers, where each layer represents a specific change made while building the image. This layered architecture is one of Docker's most powerful features because it makes images faster to build, easier to share, and more storage-efficient. Whenever Docker reads a Dockerfile, it processes each instruction from top to bottom. Most instructions, such as RUN, COPY, or ADD, create a new layer. Docker then stacks these layers together to build the final image.
 
 For example:
 
@@ -215,21 +213,29 @@ CMD ["nginx"]
 
 Each instruction above becomes a separate image layer.
 
----
+The image created from this Dockerfile consists of multiple layers:
 
-## Think of Layers Like a Burger 🍔
+Docker Image
+────────────────────────────
+CMD nginx
+────────────────────────────
+WORKDIR /app
+────────────────────────────
+COPY Application Files
+────────────────────────────
+Install Nginx
+────────────────────────────
+apt update
+────────────────────────────
+Ubuntu Base Image
+────────────────────────────
+Each layer depends on the layer below it, and together they form the complete Docker image.
 
-```text
-Top Bun
-Cheese
-Patty
-Vegetables
-Bottom Bun
-```
+🔒 Read-Only Layers
 
-Each ingredient represents one Docker layer.
+All image layers are read-only (immutable), meaning they cannot be modified after they are created. When a container starts, Docker adds a writable layer on top of these image layers. Any changes made while the container is running—such as creating files or modifying data—are stored only in this writable layer, while the original image remains unchanged.
 
-If only the cheese changes, Docker doesn't rebuild the entire burger—it only replaces that layer.
+
 
 This is exactly how Docker layers work.
 
@@ -275,15 +281,15 @@ Docker layers provide several benefits:
 
 ### 🚀 Faster Builds
 
-Only modified layers are rebuilt.
+Docker caches each layer after it is built. If only one part of the Dockerfile changes, Docker reuses the unchanged layers and rebuilds only the modified ones, significantly reducing build time.
 
 ### 💾 Storage Efficiency
 
-Different images can share common layers.
+Multiple Docker images can share common layers. For example, if several images use the same Ubuntu base image, Docker stores that base layer only once, saving disk space
 
 ### ⚡ Faster Downloads
 
-Docker downloads only missing layers.
+When pulling an image from Docker Hub, Docker downloads only the layers that are missing on the local machine instead of downloading the entire image every time.
 
 ### 🔁 Better Caching
 
