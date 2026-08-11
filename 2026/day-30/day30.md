@@ -91,8 +91,8 @@ docker pull alpine
 * Downloads only missing layers instead of the complete image.
 
 ### Screenshot
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/036d0034-3501-4ccf-982d-b5ad904db9d1" />
 
-📸 *Add Screenshot Here*
 
 ---
 
@@ -114,11 +114,10 @@ docker images
 
 ### Your Observation
 
-*Write your findings here.*
-
 ### Screenshot
 
-📸 *Add Screenshot Here*
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/ef4c735b-195a-4891-91ed-24cc31497d3a" />
+
 
 ---
 
@@ -147,7 +146,8 @@ It removes unnecessary packages, documentation, and utilities while keeping only
 
 ### Your Observation
 
-*Write your comparison here.*
+The three Images we downloaded form Hub have a huge storage gap!! Alpine image is approx 100-200 mb smaller than ubuntu and nginx which means, it will be more production friendly image, faster and will utilise less resources to run an application
+
 
 ---
 
