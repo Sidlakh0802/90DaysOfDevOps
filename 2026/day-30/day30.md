@@ -113,7 +113,12 @@ docker images
 * Size
 
 ### Your Observation
-
+* Docker stores each image with a unique Image ID, which uniquely identifies that image on the local machine.
+* All images are tagged as latest, meaning Docker pulled the most recent version available from Docker Hub.
+* The Alpine image is significantly smaller than the Ubuntu image because Alpine is designed as a minimal Linux distribution with only essential packages.
+* The Nginx image is larger than Alpine because it includes the Nginx web server along with the necessary libraries and configuration files.
+* The hello-world image is the smallest because it contains only a simple program that prints a welcome message and exits.
+* I also noticed that Docker displays both Content Size and Disk Usage. The content size represents the actual size of the image itself, while disk usage can be higher because Docker stores image layers, metadata, and shared data on the local system.
 ### Screenshot
 
 <img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/ef4c735b-195a-4891-91ed-24cc31497d3a" />
