@@ -215,20 +215,32 @@ Each instruction above becomes a separate image layer.
 
 The image created from this Dockerfile consists of multiple layers:
 
-Docker Image
-────────────────────────────
-CMD nginx
-────────────────────────────
-WORKDIR /app
-────────────────────────────
-COPY Application Files
-────────────────────────────
-Install Nginx
-────────────────────────────
-apt update
-────────────────────────────
-Ubuntu Base Image
-────────────────────────────
+## Docker Image Layers
+
+```text
+                     Docker Image
+                           ▲
+                           │
+          ┌──────────────────────────┐
+          │ CMD ["nginx"]            │
+          └──────────────────────────┘
+                           ▲
+          ┌──────────────────────────┐
+          │ COPY . .                 │
+          └──────────────────────────┘
+                           ▲
+          ┌──────────────────────────┐
+          │ RUN apt install nginx    │
+          └──────────────────────────┘
+                           ▲
+          ┌──────────────────────────┐
+          │ RUN apt update           │
+          └──────────────────────────┘
+                           ▲
+          ┌──────────────────────────┐
+          │ FROM ubuntu              │
+          └──────────────────────────┘
+```
 Each layer depends on the layer below it, and together they form the complete Docker image.
 
 🔒 Read-Only Layers
