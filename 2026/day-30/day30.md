@@ -178,7 +178,9 @@ docker image inspect nginx
 
 ### Screenshot
 
-📸 *Add Screenshot Here*
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/8c82ad5a-635f-4196-8d21-1f925414bae4" />
+
+
 
 ---
 
@@ -196,7 +198,8 @@ Docker removes the image only if it is not being used by any existing container.
 
 ### Screenshot
 
-📸 *Add Screenshot Here*
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/98a5239c-8cbd-43f5-95d9-6b64df7bd1d9" />
+
 
 ---
 
@@ -268,7 +271,8 @@ docker image history nginx
 
 ### Screenshot
 
-📸 *Add Screenshot Here*
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/f8b5f8be-fae1-4e31-a9ba-d49cbd140422" />
+
 
 ---
 
@@ -351,7 +355,8 @@ docker create --name demo-container nginx
 
 **State:** `Created`
 
-📸 Screenshot
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/ae4f8487-0198-48af-9678-685573a10d3d" />
+
 
 ---
 
@@ -362,8 +367,8 @@ docker start demo-container
 ```
 
 **State:** `Running`
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/b6671463-5ecc-406c-9c72-a9b00d3e6f71" />
 
-📸 Screenshot
 
 ---
 
@@ -372,14 +377,12 @@ docker start demo-container
 ```bash
 docker pause demo-container
 ```
-
-**State:** `Paused`
-
 Think of Pause as pressing the pause button on a movie. The container still exists but temporarily stops execution.
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/4b9a6e1f-4e25-40cf-b5c9-9f3ef20ac28f" />
+
 
 ## Step 4 – Unpause the Container
 
@@ -389,7 +392,8 @@ docker unpause demo-container
 
 **State:** `Running`
 
-📸 Screenshot
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/8d70246f-bc84-422a-b2cd-5fd06e3a72b4" />
+
 
 ---
 
@@ -405,7 +409,8 @@ Docker gracefully stops the application running inside the container.
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/011ea1c6-59bc-4ec7-9ef2-7ed082314ce2" />
+
 
 ## Step 6 – Restart the Container
 
@@ -423,7 +428,8 @@ Start
 
 automatically.
 
-📸 Screenshot
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/4ed2488b-a787-4fa8-a020-06f00f71629c" />
+
 
 ---
 
@@ -437,7 +443,8 @@ Unlike `docker stop`, this command immediately terminates the running process wi
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/8c49b678-c59b-4fe5-8e9c-86ae9e931162" />
+
 
 ## Step 8 – Remove the Container
 
@@ -449,7 +456,8 @@ The container is permanently removed from the system.
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/df682f71-1a4d-4e86-8f56-332f31d93b3b" />
+
 
 ## Container Lifecycle Summary
 
@@ -482,7 +490,8 @@ docker run -d --name nginx-demo -p 8080:80 nginx
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/cb136b9d-1107-4c46-8e81-860e058dfe1b" />
+
 
 ## View Logs
 
@@ -499,7 +508,8 @@ Logs help identify:
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/0481ffda-0da5-4998-96c7-2c6398139414" />
+
 
 ## View Live Logs
 
@@ -517,7 +527,8 @@ Useful for monitoring applications in real time.
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/f36463bf-6690-4e8f-8926-64783b982a67" />
+
 
 ## Access the Running Container
 
@@ -544,7 +555,8 @@ home
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/b2ec8669-e44a-4c67-8f21-09c1fc2eafca" />
+
 
 ## Execute a Single Command
 
@@ -556,7 +568,8 @@ Useful when you only need to execute one command without opening an interactive 
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/f479d2d6-046b-40e0-9373-6f07637109bf" />
+
 
 ## Inspect the Container
 
@@ -576,7 +589,8 @@ Look for:
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/2b5259ce-c2c0-4a3f-b939-9366c6348b65" />
+
 
 # 🧹 Task 5 – Docker Cleanup
 
@@ -598,7 +612,8 @@ docker container prune
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/67d21ac6-c996-40ac-89cf-0c2b20561612" />
+
 
 ## Remove Unused Images
 
@@ -608,7 +623,8 @@ docker image prune
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/edf4646d-f806-44bd-9dc2-a777d87b06f4" />
+
 
 ## Check Docker Disk Usage
 
@@ -626,7 +642,8 @@ This command displays:
 
 📸 Screenshot
 
----
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/398394ba-f755-48f4-b314-4b005754e0af" />
+
 
 # 💡 Pro Tips
 
@@ -653,26 +670,25 @@ This command displays:
 # 🤔 Reflection
 
 ### What surprised you most about Docker Image Layers?
-
-*Write your answer here.*
+I think image layers is like a script you speak lines one by one similarly docker layers helps in building the final image one by one
 
 ---
 
 ### Which container lifecycle command do you think you'll use most often?
 
-*Write your answer here.*
+Well I  think the most common command will be " docker start" and "docker restart" as debugging and changes will require the container to start or restart again
 
 ---
 
 ### When would you use `docker inspect` in a real project?
 
-*Write your answer here.*
+This will be majorly used when container crashes and to find configurations of the container like same network , correct architecture etc 
 
 ---
 
 ### Which Docker command did you find most useful today?
 
-*Write your answer here.*
+I would say "docker inspect" and "docker logs" to check the current scenario of the container 
 
 ---
 
