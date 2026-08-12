@@ -77,6 +77,8 @@ CMD ["echo", "Hello from my custom image!"]
 # Build the image and tag it
 docker build -t my-ubuntu:v1 .
 
+
+
 # Run a container from the new image
 docker run my-ubuntu:v1
 
@@ -88,9 +90,13 @@ docker run my-ubuntu:v1
 * It pulls the Ubuntu base image, runs the installation for `curl`, and sets the default command.
 * When running the container, it immediately prints "Hello from my custom image!" and exits.
 
-### Screenshot
+### Screenshots
+## BUILDING
 
-📸 `[Insert Screenshot of the terminal output here]`
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/cde09fae-ec23-4311-ab60-bbce5c6d0ca5" />
+
+## RUNNING
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/e7e11fa9-831d-477a-a2d6-3a98408c51d2" />
 
 ---
 
@@ -130,6 +136,11 @@ CMD ["python3", "script.py"]
 * **`EXPOSE`**: Documentation only; tells other developers what port the app uses.
 * **`CMD`**: The default command that executes when a container is started from the image.
 
+### Screenshots
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/0dbab089-a69e-4e4d-966f-cb4ade006f22" />
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/f5d07dd8-d48f-472d-8afa-ec8dad79a113" />
+
 ---
 
 # 🔄 Task 3 – CMD vs ENTRYPOINT
@@ -159,6 +170,9 @@ docker run cmd-test echo "Overridden!"
 
 * **Observation:** `CMD` is easily overridden by passing a new command at the end of `docker run`.
 
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/715ecbcb-ba7e-40be-a7e1-a9bdb370d351" />
+
+
 ## Step 2 – Testing ENTRYPOINT
 
 ### Dockerfile
@@ -184,7 +198,9 @@ docker run entry-test "Added text!"
 
 * **Observation:** `ENTRYPOINT` acts as a strict executable. Anything added to the end of `docker run` is passed as an *argument* to it, rather than overriding it.
 
-### Your Notes: When to use which?
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/2de92076-c8ed-4b4b-9bd1-183839a9cb99" />
+
+### Notes: When to use which?
 
 Use **`CMD`** when you want to provide a default command that a user can easily override (like dropping into `bash`). Use **`ENTRYPOINT`** when your container is designed to act as a single, dedicated executable and you only want users to pass flags or arguments to it.
 
@@ -232,7 +248,8 @@ Docker builds a custom Nginx image containing my static HTML file. Running it wi
 
 ### Screenshot
 
-📸 `[Insert Screenshot of the Webpage in your Browser here]`
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/61e83788-cf5a-4c0f-a032-c9add4425f2b" />
+
 
 ---
 
