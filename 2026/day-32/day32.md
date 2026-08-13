@@ -339,7 +339,7 @@ The ultimate goal: Architecting a secure network where a backend application can
 docker network create backend-net
 
 # 2. Start the Database with a Named Volume ON the custom network
-docker run -d --name my-db-server \
+docker run -d --name my-sid-server \
   --network backend-net \
   -v my-secure-data:/var/lib/postgresql/data \
   -e POSTGRES_PASSWORD=admin \
@@ -351,7 +351,7 @@ docker run -d --name my-app \
   alpine sleep 3600
 
 # 4. Verify the App can communicate with the Database securely by Name!
-docker exec my-app ping -c 3 my-db-server
+docker exec my-app ping -c 3 my-sid-server
 
 ```
 
@@ -360,7 +360,7 @@ docker exec my-app ping -c 3 my-db-server
 ```mermaid
 graph TD
     subgraph backend-net [Custom Docker Network: backend-net]
-        App[my-app <br> Container] <==>|Ping by Name<br>Embedded DNS| DB[(my-db-server <br> Container)]
+        App[my-app <br> Container] <==>|Ping by Name<br>Embedded DNS| DB[(my-sid-server <br> Container)]
     end
     
     DB ==>|Reads / Writes| Vol[(my-secure-data <br> Named Volume)]
@@ -371,7 +371,8 @@ graph TD
 
 ```
 
-📸 `[Insert Screenshot of my-app successfully pinging my-db-server]`
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/368450b4-e09a-4856-85e4-65e6369610a6" />
+
 
 ---
 
