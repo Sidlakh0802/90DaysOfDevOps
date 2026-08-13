@@ -80,7 +80,8 @@ graph TD
 
 ```
 
-📸 `[Insert Screenshot of the missing data error]`
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/9e19c333-af17-4104-ad01-c492786c894a" />
+
 
 ---
 
@@ -97,7 +98,7 @@ To fix the data loss issue, we use **Named Volumes**. These are dedicated storag
 docker volume create pg-data
 
 # Run a Postgres container, attaching the volume to the DB path
-docker run -d --name db1 -v pg-data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=mysecretpassword postgres
+docker run -d --name db1 -v my-db-data:/var/lib/postgresql -e POSTGRES_PASSWORD=mysecretpassword postgres
 
 # Add data to the database
 docker exec -it db1 psql -U postgres -c "CREATE TABLE users (name VARCHAR(50)); INSERT INTO users VALUES ('Persistent User');"
@@ -112,7 +113,7 @@ docker stop db1
 docker rm db1
 
 # Run a NEW container, attaching the SAME volume
-docker run -d --name db2 -v pg-data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=mysecretpassword postgres
+docker run -d --name db2 -v my-db-data:/var/lib/postgresql -e POSTGRES_PASSWORD=mysecretpassword postgres
 
 # Verify the data!
 docker exec -it db2 psql -U postgres -c "SELECT * FROM users;"
@@ -127,11 +128,12 @@ The data successfully survived! Because this storage area exists completely outs
 
 ```bash
 docker volume ls
-docker volume inspect pg-data
+docker volume inspect db-data
 
 ```
 
-📸 `[Insert Screenshot of the successful SELECT statement showing the data survived]`
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/47024838-b57b-4596-8e18-022763b69695" />
+
 
 ---
 
@@ -158,15 +160,21 @@ docker run -d --name nginx-bind -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx
 
 *(Verified by visiting `http://localhost:8080`)*
 
+## Screenshots
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/18603500-11fe-44de-8d84-a5280f701c46" />
+
+
 ## Step 3 – Live Edit
 
 ```bash
 # Edit the file directly on the host machine
-echo "<h1>Updated dynamically from the Host!</h1>" > index.html
+echo '<h1>Updated dynamically from the Host!</h1>' > index.html
 
 ```
 
 *(Refreshed the browser and the text updated instantly without restarting the container!)*
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/bd4647f3-6722-4be6-b6d2-edc213147e13" />
 
 ### Deep Dive: Named Volumes vs. Bind Mounts
 
@@ -234,7 +242,7 @@ docker run -v /Users/siddharth/my-website:/usr/share/nginx/html nginx
 | **Ease of Backup** | Docker provides built-in CLI commands | Managed manually via normal OS copy/paste |
 
 **The Golden Rule:** Use **Bind Mounts** when *you* need to edit the files (like writing code). Use **Named Volumes** when the *application* needs to edit the files (like a database saving user records).
-📸 `[Insert Screenshot of the browser showing the updated text]`
+
 
 ---
 
@@ -272,7 +280,8 @@ docker exec web1 ping -c 2 web2
 
 On the default `bridge` network, containers can ping each other using their IP addresses, but they **cannot** resolve each other by container name.
 
-📸 `[Insert Screenshot of the failed ping by name]`
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/d2502100-7902-492c-90df-3988e75970a3" />
+
 
 ---
 
@@ -314,8 +323,8 @@ graph LR
     end
 
 ```
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/831c36b0-2b4b-42ee-83d8-05a05399d5fe" />
 
-📸 `[Insert Screenshot of the successful ping by name]`
 
 ---
 
