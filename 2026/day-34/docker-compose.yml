@@ -1,0 +1,63 @@
+version: '3.8'
+
+# Task 5: Explicit Networks
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+# Task 5: Explicit Named Volumes
+volumes:
+  pg_data:
+
+services:
+  # --- WEB APP TIER ---
+  web:
+    build: ./app
+    ports:
+      - "5000:5000"
+    networks:
+      - frontend
+      - backend
+    # Task 2: Wait for DB to be HEALTHY, not just started
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    labels:
+      - "env=development"
+      - "tier=frontend"
+
+  # --- DATABASE TIER ---
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+    volumes:
+      - pg_data:/var/lib/postgresql
+    networks:
+      - backend
+    # Task 3: Restart Policies
+    restart: always
+    # Task 2: Healthcheck
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d mydb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "tier=database"
+
+  # --- CACHE TIER ---
+  redis:
+    image: redis:alpine
+    networks:
+      - backend
+    restart: on-failure
+    labels:
+      - "tier=cache"
+
