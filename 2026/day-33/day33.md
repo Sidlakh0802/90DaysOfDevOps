@@ -58,8 +58,10 @@ docker compose version
 
 ### Observation
 
-Docker Compose comes pre-installed with modern Docker Desktop and Docker Engine installations. Running this command confirms the version and verifies that the Compose plugin is ready for use.
-
+Docker Compose comes pre-installed with Docker Desktop (Windows/macOS). 
+On Linux/Ubuntu Docker Engine installations, it must be explicitly installed 
+via the `docker-compose-plugin` package. Running this command confirms the 
+active version and verifies that the CLI plugin is linked and ready for use.
 ---
 
 # 📦 Task 2 – Your First Compose File
@@ -98,6 +100,7 @@ services:
 # Start the container in detached mode
 docker compose up -d
 
+
 # Stop and clean up the container
 docker compose down
 
@@ -106,6 +109,10 @@ docker compose down
 ### What Happens?
 
 Docker Compose reads the YAML file, automatically creates a default network, pulls the `nginx:alpine` image, maps port 8080 on the host to port 80 in the container, and starts the service. Accessing `http://<EC2-IP>:8080` displays the default Nginx welcome page.
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/a6f93c37-2cf4-4eee-8355-34ad104197ac" />
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/58299d0d-35f2-4220-af1c-22fe1f97feee" />
 
 ---
 
@@ -164,6 +171,17 @@ docker compose up -d
 
 * **Automatic Networking:** Compose automatically places both containers on the same default network, allowing WordPress to communicate with MySQL simply by using its service name (`db:3306`).
 * **Data Persistence:** Even after running `docker compose down` and removing the containers, bringing the stack back up with `docker compose up -d` preserves all setup configurations and blog posts because the data is safely stored in the `db_data` named volume.
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/31cc88a0-ff76-4f21-acda-0b448b732a7a" />
+
+## APP WORKING
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/a6a212fa-5546-48d0-9b39-749d0a06c314" />
+
+## SAME NETWORK
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/74697bb3-e0f4-4350-aa08-d754e132b85b" />
+
+
 
 ---
 
@@ -231,6 +249,9 @@ volumes:
 ### Observation
 
 Docker Compose automatically reads the `.env` file in the current working directory and injects the variables safely into the configuration during runtime, keeping secrets secure and separate from your infrastructure blueprint.
+
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/aa2f51dc-6f03-4d3e-b7f9-43e93216a771" />
 
 ---
 
