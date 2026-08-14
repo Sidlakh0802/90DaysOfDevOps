@@ -190,6 +190,8 @@ I manually killed the database container using `docker kill <db_container_id>`. 
 * **`restart: unless-stopped`**: Similar to `always`, but if you manually stop the container, it will *not* automatically start back up when the Docker daemon reboots.
 
 ---
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/e9334b61-af3f-44e3-b7ab-b5ccdd6a16cf" />
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/474603a0-b32f-4c15-b5e2-edd8671efad0" />
 
 # ⚖️ Task 6 (Bonus): Scaling
 
@@ -203,6 +205,8 @@ docker compose up --scale web=3 -d
 ### What happens? What breaks?
 
 When running this command, Docker successfully creates 3 instances of the `web` container, but **it throws a Port Allocation Error** and fails to start two of them.
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/c6a6c69c-22ea-4570-b50c-35ccaa101ff9" />
 
 ### Why doesn't simple scaling work with port mapping?
 
@@ -242,8 +246,6 @@ I was surprised that Docker doesn't automatically know when a database is ready.
 
 ### How did the custom networks improve security?
 
-By defining a `backend` network for the database and cache, and not exposing their ports to the host machine, I ensured that absolutely no one from the outside world can directly access the database. Only the web app (which is on both networks) acts as the secure bridge!
+By defining a "backend" network for the database and cache, and not exposing their ports to the host machine, I ensured that absolutely no one from the outside world can directly access the database. Only the web app (which is on both networks) acts as the secure bridge!
 
-```
 
-```
