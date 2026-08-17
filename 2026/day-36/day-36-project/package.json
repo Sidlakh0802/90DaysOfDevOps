@@ -1,0 +1,13 @@
+{
+  "name": "day-36-task-manager",
+  "version": "1.0.0",
+  "description": "A simple Task Manager API for 90DaysOfDevOps",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.4.1"
+  }
+}
