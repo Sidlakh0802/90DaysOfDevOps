@@ -232,8 +232,5 @@ Seeing a Node application drop from over 1.5 GB to just under 190 MB simply by s
 
 ### Why does a smaller image matter beyond just saving hard drive space?
 
-Smaller images pull faster from ECR/Docker Hub, meaning auto-scaling groups can spin up new instances much quicker during high-traffic spikes. Furthermore, fewer OS tools in the image means fewer vulnerabilities to patch!
+Smaller images pull faster from Docker Hub, meaning auto-scaling groups can spin up new instances much quicker during high-traffic spikes. Furthermore, fewer OS tools in the image means fewer vulnerabilities to patch!
 
-```
-
-```
