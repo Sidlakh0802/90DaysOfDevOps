@@ -75,8 +75,12 @@ docker build -t single-stage-app .
 docker images | grep single-stage-app
 
 ```
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/f78f2456-8115-45e7-bf7b-f22eb8d73211" />
 
-**Observation:** The resulting image was massive (over **1 GB**). This is because the standard `node:18` base image contains a full Debian operating system, compiler tools, and a massive amount of unnecessary background software that a simple Express app doesn't need to run in production.
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/0a7ac8be-7925-4b3d-bc12-fd1282aae474" />
+
+
+**Observation:** The resulting image was massive (over **1.5 GB**). This is because the standard `node:18` base image contains a full Debian operating system, compiler tools, and a massive amount of unnecessary background software that a simple Express app doesn't need to run in production.
 
 ---
 
@@ -113,9 +117,13 @@ docker build -t multi-stage-app .
 docker images | grep multi-stage-app
 
 ```
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/8fa1250e-5c0e-4a46-9eba-bacaad23e815" />
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/58b7b782-cc68-423d-8dc4-4761a039329d" />
+
 
 **Observation & Explanation:**
-The new image size dropped drastically to around **175 MB**!
+The new image size dropped drastically to around **186 MB**!
 **Why is it so much smaller?**
 
 1. **The Base Image:** The second stage uses `node:18-alpine`, which is built on Alpine Linux (a tiny 5MB OS), stripping out hundreds of megabytes of unnecessary OS tools.
@@ -146,7 +154,10 @@ docker pull myusername/day-35-express:v1.0
 
 ```
 
+
 ---
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/0b6a28b0-2742-49c4-a78e-fbf9d1432a97" />
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/fab86647-ae59-4fe1-8784-de38ce42e31b" />
 
 # 🏷️ Task 4: Docker Hub Repository
 
@@ -171,7 +182,7 @@ I took the multi-stage build one step further and applied three massive industry
 FROM node:18.17.0-alpine3.18 AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci 
+RUN npm install 
 COPY . .
 
 # Final Stage
@@ -194,6 +205,7 @@ EXPOSE 3000
 CMD ["node", "app.js"]
 
 ```
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/fc405f81-aada-491f-92fe-b5048a53e06a" />
 
 ### Why these matter:
 
@@ -216,7 +228,7 @@ CMD ["node", "app.js"]
 
 ### What was the most surprising size difference you saw today?
 
-Seeing a Node application drop from over 1 GB to just under 180 MB simply by splitting the Dockerfile into two stages and swapping the base image. It completely changed my perspective on how container storage works.
+Seeing a Node application drop from over 1.5 GB to just under 190 MB simply by splitting the Dockerfile into two stages and swapping the base image. It completely changed my perspective on how container storage works.
 
 ### Why does a smaller image matter beyond just saving hard drive space?
 
