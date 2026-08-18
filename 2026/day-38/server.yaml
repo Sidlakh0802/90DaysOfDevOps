@@ -1,0 +1,23 @@
+---
+server:
+  name: web-app-prod
+  ip: 10.0.0.45
+  port: 8080
+
+database:
+  host: db.internal.local
+  name: production_db
+  credentials:
+    user: admin
+    password: supersecretpassword
+
+startup_script: |
+  #!/bin/bash
+  echo "Server is booting up..."
+  systemctl start nginx
+  systemctl enable nginx
+
+description: >
+  This server is responsible for handling all incoming 
+  web traffic and routing it to the appropriate internal 
+  microservices securely.
