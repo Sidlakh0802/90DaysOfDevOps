@@ -1,0 +1,12 @@
+---
+name: Siddharth
+role: DevOps Engineer
+experience_years: 1
+learning: true
+tools:
+  - Linux
+  - Git
+  - Docker
+  - GitHub Actions
+  - AWS
+hobbies: [coding, Music, gaming]
