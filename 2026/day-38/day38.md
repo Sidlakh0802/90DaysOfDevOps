@@ -30,6 +30,7 @@ tools:
 hobbies: [coding, Music, gaming]
 
 ```
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/09f49a02-4d79-43b7-88d3-7f4e950d8487" />
 
 ### 2. `server.yaml` (Nested Objects & Multi-line Strings)
 
@@ -63,6 +64,7 @@ description: >
 ```
 
 ---
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/faa3f19a-c86c-4b21-986c-2dd4f8ea5883" />
 
 ## 🧠 Task Answers & Notes
 
@@ -83,6 +85,8 @@ YAML **strictly forbids** tabs for indentation. If you use a tab, the YAML valid
 ### Task 5: Validating YAML
 
 When I intentionally broke the indentation on the `database` block, `yamllint` threw the error: `mapping values are not allowed here` or `bad indentation of a mapping entry`. Fixing it back to strict 2-space indentation resolved the error immediately.
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/3ba67943-ebb8-4ce2-abf5-934d0abcec6b" />
 
 ### Task 6: Spot the Difference
 
