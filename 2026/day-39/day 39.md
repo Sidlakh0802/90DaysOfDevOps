@@ -85,6 +85,7 @@ Here is a visual map of a standard CI/CD workflow where code is tested, containe
 ===================================================================================
 
 ```
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/c20fda3e-0ffb-4d6a-b792-b48394b3ef84" />
 
 ### Explanation of the Diagram:
 
