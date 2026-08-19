@@ -44,8 +44,9 @@ jobs:
         run: echo "This runner is running on -> ${{ runner.os }}"
 
 ```
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/9d770eb1-3b76-4413-bb7f-17d7ee552971" />
 
-*(Self-Note: Be sure to add the screenshot of the successful GitHub Actions run here!)*
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/432b2b44-8e41-46c8-8c80-5986203d730c" />
 
 ---
 
