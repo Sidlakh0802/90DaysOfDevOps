@@ -73,6 +73,9 @@ jobs:
 
 *Note for Submission: I went to the Actions tab, selected "Manual Deployment" on the left, clicked "Run workflow", typed "production" into the box, and saw the runner print it in the logs!*
 
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/7193f0f6-1a9b-4982-87bb-c956590a0527" />
+
+
 ---
 
 ## 🧬 Task 4 & 5: Matrix Builds & Fail-Fast
