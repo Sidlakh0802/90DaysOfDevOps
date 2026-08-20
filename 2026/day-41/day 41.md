@@ -29,6 +29,8 @@ jobs:
 
 *Note for Submission: After pushing this, I created a new branch, made a dummy commit, and opened a Pull Request. The GitHub UI immediately showed the yellow "pending" dot, proving the pipeline attached itself to the PR page!*
 
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/e49c56c4-3eba-44e6-9cad-094cbe2a8077" />
+
 ---
 
 ## ⏰ Task 2: Scheduled Trigger (Cron)
