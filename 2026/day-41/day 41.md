@@ -136,6 +136,7 @@ jobs:
           python --version
 
 ```
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/9d51e05f-0994-4ea9-89d2-1f61eac8b8af" />
 
 **My Notes & Answers:**
 
