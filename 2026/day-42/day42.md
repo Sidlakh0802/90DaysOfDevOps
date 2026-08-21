@@ -106,6 +106,8 @@ jobs:
         run: touch i-was-created-by-github-actions.txt
 
 ```
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/5d3d1644-0aa3-45c0-b2d1-8c7c80f4e066" />
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/629e1830-3bee-430b-a4f1-6bf49b4f3aa1" />
 
 ---
 
@@ -115,6 +117,9 @@ During configuration, I assigned the custom label `my-linux-runner` to my machin
 
 **Why are labels useful?**
 Labels act as precise routing tags for your physical servers. If a company has 10 different self-hosted runners, labels ensure that a heavy Machine Learning pipeline is routed exactly to `[self-hosted, gpu-enabled]`, and a highly sensitive deployment script only goes to `[self-hosted, secure-internal-network]`.
+
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/8c25594d-c6ec-4e3c-b407-b976949ca9e4" />
+
 
 ---
 
