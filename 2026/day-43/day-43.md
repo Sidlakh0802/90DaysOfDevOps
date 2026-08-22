@@ -123,6 +123,8 @@ jobs:
         run: echo "This only prints if we are on the main branch!"
 
 ```
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/88e153ba-d194-4802-a496-c0bc920769ed" />
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/929175af-d583-479d-a330-cceeb2c9ba75" />
 
 ---
 
@@ -168,7 +170,5 @@ jobs:
           fi
 
 ```
+<img width="3420" height="2214" alt="image" src="https://github.com/user-attachments/assets/ddbb5707-ac41-4e81-a6f8-ef16ef349f98" />
 
-```
-
-```
